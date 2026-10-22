@@ -1,0 +1,5 @@
+"use client";
+import { useState } from "react";
+import { MessageCircle, X, Send } from "lucide-react";
+const quick=["Explore our services","I need social media management","I need branding","I want to run ads","Start a project"];
+export default function Chatbot(){const [open,setOpen]=useState(false);return <><button aria-label="Open BABI chat" className="chat-launch" onClick={()=>setOpen(!open)}>{open?<X size={21}/>:<MessageCircle size={21}/>}<span>Talk to BABI</span></button>{open&&<aside className="chat-panel"><div className="chat-head"><div><b>BABI</b><small>Growth Marketing</small></div><button onClick={()=>setOpen(false)}><X size={18}/></button></div><div className="chat-body"><div className="bot-msg">Hi 👋 Welcome to BABI Growth Marketing. How can we help your brand grow?</div><div className="quick">{quick.map(x=><button key={x}>{x}</button>)}</div><p className="chat-note">Chatbot UI preview — we’ll build the intelligence separately.</p></div><div className="chat-input"><input placeholder="Write a message…"/><button><Send size={17}/></button></div></aside>}</>}
